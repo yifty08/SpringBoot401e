@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 //import javax.management.relation.Role; -->dont need this, gives you error
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Entity
@@ -14,21 +15,26 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Size(min = 3)
     @Column(name="email", nullable = false)
     private String email;
 
+    @Size(min = 3)
     @Column(name = "password")
     private String password;
 
+    @Size(min = 3)
     @Column(name="first_name")
     private String firstName;
 
+    @Size(min = 3)
     @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "enabled")
     private boolean enabled;
 
+    @Size(min = 3)
     @Column(name = "username")
     private String username;
 
